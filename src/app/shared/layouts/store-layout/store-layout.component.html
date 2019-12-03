@@ -1,0 +1,76 @@
+<div class="store-layout">
+  <nav>
+    <div class="nav-wrapper  brown lighten-1">
+
+      <a class="brand-logo logo" routerLink="/"><i class="material-icons">polymer</i> I K L O A .SHOP</a>
+      <a class="sidenav-trigger" data-target="mobile-demo" routerLink="/"><i class="material-icons">menu</i></a>
+
+      <ul class="right hide-on-med-and-down" id="nav-mobile">
+
+        <li><a href="">О нас</a></li>
+        <li><a href="">Каталог</a></li>
+        <li><a href="">Новинки</a></li>
+        <li><a href="">Акции</a></li>
+        <li><a href="">Доставка</a></li>
+        <li><a href="">Контакты</a></li>
+        <li routerLinkActive="active">
+          <a routerLink="/login">Войти</a>
+        </li>
+        <li routerLinkActive="active">
+          <a routerLink="/register">Регистрация</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <ul class="sidenav" id="mobile-demo">
+    <li><a href="">О нас</a></li>
+    <li><a href="">Каталог</a></li>
+    <li><a href="">Новинки</a></li>
+    <li><a href="">Акции</a></li>
+    <li><a href="">Доставка</a></li>
+    <li><a href="">Контакты</a></li>
+    <li><a href="">Войти</a></li>
+    <li><a href="">Регистрация</a></li>
+  </ul>
+
+  <div class="content">
+    <router-outlet></router-outlet>
+  </div>
+
+
+  <footer class="page-footer brown lighten-1">
+    <div class="footer">
+      <div class="col l4 offset-l2 s12">
+        <h6>Каталог:</h6>
+        <ul class="footer-list">
+          <li><a class="grey-text text-lighten-3 footer-list__item" href="#!">Футболки</a></li>
+          <li><a class="grey-text text-lighten-3 footer-list__item" href="#!">Свитшоты</a></li>
+          <li><a class="grey-text text-lighten-3 footer-list__item" href="#!">Поло</a></li>
+          <li><a class="grey-text text-lighten-3 footer-list__item" href="#!">Рубашки</a></li>
+          <li><a class="grey-text text-lighten-3 footer-list__item" href="#!">Шапки</a></li>
+          <li><a class="grey-text text-lighten-3 footer-list__item" href="#!">Худи</a></li>
+          <li><a class="grey-text text-lighten-3 footer-list__item" href="#!">Рюкзаки</a></li>
+        </ul>
+        <h6>Поддержка и сервис:</h6>
+        <ul class="footer-list">
+          <li><a class="grey-text text-lighten-3 footer-list__item" href="#!">О нас</a></li>
+          <li><a class="grey-text text-lighten-3 footer-list__item" href="#!">Контакты</a></li>
+          <li><a class="grey-text text-lighten-3 footer-list__item" href="#!">Доставка</a></li>
+          <li><a class="grey-text text-lighten-3 footer-list__item" href="#!">Акции</a></li>
+        </ul>
+      </div>
+      <div class="contacts-block">
+        <p class="">E-MAIL:</p>
+        <b>ikloastore@gmail.com</b>
+        <p class="">ТЕЛЕФОН ПОДДЕРКЖИ:</p>
+        <b>+375445874554</b>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="footer-container">
+        <span class="white-text">© 2019, ikloaStore</span>
+        <a class="grey-text text-lighten-4" routerLink="/">Перейти на главную</a>
+      </div>
+    </div>
+  </footer>
+</div>

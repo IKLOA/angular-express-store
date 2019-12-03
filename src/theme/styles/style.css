@@ -1,0 +1,57 @@
+.logo {
+  margin-left: 4rem;
+}
+
+.footer-list {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.footer-list__item {
+  margin-right: 20px;
+  font-size: 1rem;
+}
+
+.footer-list__item:hover {
+  text-decoration: underline;
+}
+
+.footer {
+  padding: 1rem 6rem;
+  padding-top: 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.contacts-block {
+  text-align: right;
+}
+
+.contacts-block p {
+  margin-bottom: 7px;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0 6rem;
+  font-size: 1.1rem;
+}
+
+.about__subtitle {
+  font-size: 1.3rem;
+  margin-bottom: 4rem;
+  color: #212121;
+}
+
+.about {
+  padding: 5rem 3rem;
+}
+
+.btn {
+  margin-top: 7rem;
+  margin-right: 1rem;
+}

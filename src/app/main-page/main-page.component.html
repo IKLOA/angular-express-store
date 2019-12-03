@@ -1,0 +1,58 @@
+<section class="hero">
+  <h2 class="white-text">Интернет магазин одежды</h2>
+  <h4 class="light white-text">Представьте себе гардероб, в котором собрано более 2 000 000 модных товаров
+  </h4>
+  <div class="buttons">
+    <a class="waves-effect waves-grey btn-flat white btn">Каталог</a>
+    <a class="waves-effect waves-grey btn-flat white btn">Помощь</a>
+  </div>
+</section>
+
+<section class="about">
+  <div class="container">
+    <div class="row"></div>
+    <div class="col l12 center">
+      <h2 class="about__title">Наши преимущества</h2>
+      <p class="about__subtitle">I K L O A .SHOP — крупнейший в Беларуси интернет-магазин одежды, обуви и
+        аксессуаров, в котором представлено свыше 1000 известных марок: Nike, Adidas, DKNY и многих других.
+        Мы сотрудничаем только с официальными дистрибьюторами и гарантируем подлинность всех товаров,
+        представленных на нашем сайте.</p>
+    </div>
+  </div>
+  <div class="row ">
+    <div class="col l4 center">
+      <img alt="" src="../../assets/img/Доставка2.png">
+      <h5 class="about__ftitle">Бесплатная доставка</h5>
+      <p class="about__fsubtitle">Бесплатная доставка по всей территории Республики Беларусь.
+        Другие способы доставки</p>
+    </div>
+    <div class="col l4 center">
+      <img alt="" src="../../assets/img/Карта.png">
+      <h5 class="about__ftitle">Удобные способы оплаты</h5>
+      <p class="about__fsubtitle">Вы можете оплатить покупки не только наличными, но и банковской картой.
+        Предоплата не обязательна, вы всегда можете заказать понравившуюся вещь сейчас, а оплатить в момент
+        доставки.</p>
+    </div>
+    <div class="col l4 center">
+      <img alt="" src="../../assets/img/Акции.png">
+      <h5 class="about__ftitle">Акции и подарки</h5>
+      <p class="about__fsubtitle">Каждый день интернет-магазин радует своих покупателей новыми акциями и
+        распродажами со скидками до 90% на все категории товаров.</p>
+    </div>
+  </div>
+
+</section>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        var elems = document.querySelectorAll(".sidenav");
+        var instances = M.Sidenav.init(elems);
+
+        var elems = document.querySelectorAll(".carousel");
+        var elems = document.querySelectorAll(".slider");
+        var instances = M.Slider.init(elems, {
+            height: 700,
+            fullWidth: true,
+            indicators: false
+        });
+    });
+</script>
