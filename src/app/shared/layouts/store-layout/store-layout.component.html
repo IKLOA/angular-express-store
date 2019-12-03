@@ -13,11 +13,23 @@
         <li><a href="">Акции</a></li>
         <li><a href="">Доставка</a></li>
         <li><a href="">Контакты</a></li>
-        <li routerLinkActive="active">
+        <li
+          *ngIf="!auth.isAuthenticated()"
+          routerLinkActive="active"
+        >
           <a routerLink="/login">Войти</a>
         </li>
-        <li routerLinkActive="active">
+        <li
+          *ngIf="!auth.isAuthenticated()"
+          routerLinkActive="active"
+        >
           <a routerLink="/register">Регистрация</a>
+        </li>
+        <li *ngIf="auth.isAuthenticated()">
+          <a href="">Мои заказы</a>
+        </li>
+        <li *ngIf="auth.isAuthenticated()">
+          <a (click)="auth.logout()">Выйти</a>
         </li>
       </ul>
     </div>
@@ -33,9 +45,9 @@
     <li><a href="">Регистрация</a></li>
   </ul>
 
-  <div class="content">
+  <main class="content">
     <router-outlet></router-outlet>
-  </div>
+  </main>
 
 
   <footer class="page-footer brown lighten-1">

@@ -1,4 +1,5 @@
-import {Component, OnInit} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {MaterialService} from '../shared/classes/material.service';
 
 @Component({
   selector: 'app-main-page',
@@ -7,14 +8,15 @@ import {Component, OnInit} from '@angular/core';
 })
 
 
-export class MainPageComponent implements OnInit {
+export class MainPageComponent implements AfterViewInit {
 
+  @ViewChild('slider', {static: false}) sliderRef: ElementRef;
 
   constructor() {
   }
 
-  ngOnInit() {
-
+  ngAfterViewInit() {
+    MaterialService.initializeSlider(this.sliderRef);
   }
 
 }
