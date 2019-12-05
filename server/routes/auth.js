@@ -6,5 +6,9 @@ router.post('/login', controller.login)
 
 router.post('/register', controller.register)
 
+router.post('/admin/login', controller.adminLogin)
+
+
+
 
 module.exports = router
