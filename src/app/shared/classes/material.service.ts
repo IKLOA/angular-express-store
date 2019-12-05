@@ -14,4 +14,8 @@ export class MaterialService {
       indicators: false
     });
   }
+
+  static updateTextFields() {
+    M.updateTextFields();
+  }
 }

@@ -18,6 +18,13 @@ export class TokenInterceptor implements HttpInterceptor {
         }
       });
     }
+    if (this.auth.isAdminAuthenticated()) {
+      req = req.clone({
+        setHeaders: {
+          Authorization: this.auth.getAdminToken()
+        }
+      });
+    }
     return next.handle(req);
   }
 

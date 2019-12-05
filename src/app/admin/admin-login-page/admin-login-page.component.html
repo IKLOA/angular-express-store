@@ -1,0 +1,44 @@
+<nav>
+  <div class="nav-wrapper  brown lighten-1">
+    <a class="brand-logo logo" routerLink="/">Admin Panel</a>
+    <a class="sidenav-trigger" data-target="mobile-demo" routerLink="/"><i class="material-icons">menu</i></a>
+    <ul class="right hide-on-med-and-down" id="nav-mobile">
+      <li><a routerLink="/home">Перейти в магазин</a></li>
+    </ul>
+  </div>
+</nav>
+
+<form (ngSubmit)="onSubmit()" [formGroup]="form" class="card">
+  <h5 class="center">Войти в панель администратора</h5>
+  <div class="form-control">
+    <div class="input-field">
+      <label for="email">Email:</label>
+      <input
+        [ngClass]="{'invalid': form.get('email').touched && form.get('email').invalid }"
+        formControlName="email"
+        id="email"
+        type="email"
+      >
+      <span *ngIf="form.get('email').touched && form.get('email').invalid" class="helper-text red-text">
+      Заполните поле корректно
+    </span>
+    </div>
+  </div>
+  <div class="form-control">
+    <div class="input-field">
+      <label for="password">Пароль:</label>
+      <input
+        [ngClass]="{'invalid': form.get('password').touched && form.get('password').invalid }"
+        formControlName="password"
+        id="password"
+        type="password"
+      >
+      <div *ngIf="form.get('password').touched && form.get('password').invalid" class="validation">
+    <span class="helper-text red-text">
+      Заполните поле корректно
+    </span>
+      </div>
+    </div>
+  </div>
+  <button class="btn btn-primary brown" type="submit">Войти</button>
+</form>

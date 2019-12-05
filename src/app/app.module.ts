@@ -11,6 +11,13 @@ import {MainPageComponent} from './main-page/main-page.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {TokenInterceptor} from './shared/classes/token.interceptor';
+import {AdminLoginPageComponent} from './admin/admin-login-page/admin-login-page.component';
+import {AdminDashboardPageComponent} from './admin/admin-dashboard-page/admin-dashboard-page.component';
+import {OrdersPageComponent} from './admin/orders-page/orders-page.component';
+import {AssortmentPageComponent} from './admin/assortment-page/assortment-page.component';
+import {LoaderComponent} from './shared/components/loader/loader.component';
+import {AssortmentFormComponent} from './admin/assortment-page/assortment-form/assortment-form.component';
+import {PositionsFormComponent} from './admin/assortment-page/assortment-form/positions-form/positions-form.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +26,14 @@ import {TokenInterceptor} from './shared/classes/token.interceptor';
     RegisterPageComponent,
     StoreLayoutComponent,
     AdminLayoutComponent,
-    MainPageComponent
+    MainPageComponent,
+    AdminLoginPageComponent,
+    AdminDashboardPageComponent,
+    OrdersPageComponent,
+    AssortmentPageComponent,
+    LoaderComponent,
+    AssortmentFormComponent,
+    PositionsFormComponent
   ],
   imports: [
     BrowserModule,

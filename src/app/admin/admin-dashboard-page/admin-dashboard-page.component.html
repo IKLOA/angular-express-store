@@ -1,0 +1,24 @@
+<ul class="sidenav sidenav-fixed a-sidenav">
+  <h4>Admin Panel</h4>
+
+  <li
+    *ngFor="let link of links"
+    class="bold"
+    routerLinkActive="active"
+  >
+    <a [routerLink]="[link.url]" class="waves-effect waves-orange">
+      {{link.name}}
+    </a>
+  </li>
+
+
+  <li class="bold last">
+    <a (click)="auth.adminLogout()" class="waves-effect waves-orange">Выйти</a>
+  </li>
+</ul>
+
+<main class="content">
+  <router-outlet></router-outlet>
+</main>
+
+
