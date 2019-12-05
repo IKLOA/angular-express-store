@@ -18,6 +18,7 @@ import {AssortmentPageComponent} from './admin/assortment-page/assortment-page.c
 import {LoaderComponent} from './shared/components/loader/loader.component';
 import {AssortmentFormComponent} from './admin/assortment-page/assortment-form/assortment-form.component';
 import {PositionsFormComponent} from './admin/assortment-page/assortment-form/positions-form/positions-form.component';
+import {CategoriesPageComponent} from './categories-page/categories-page.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import {PositionsFormComponent} from './admin/assortment-page/assortment-form/po
     AssortmentPageComponent,
     LoaderComponent,
     AssortmentFormComponent,
-    PositionsFormComponent
+    PositionsFormComponent,
+    CategoriesPageComponent
   ],
   imports: [
     BrowserModule,

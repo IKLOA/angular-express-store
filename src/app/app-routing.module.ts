@@ -11,6 +11,7 @@ import {AdminAuthGuard} from './shared/classes/adminAuth.guard';
 import {OrdersPageComponent} from './admin/orders-page/orders-page.component';
 import {AssortmentPageComponent} from './admin/assortment-page/assortment-page.component';
 import {AssortmentFormComponent} from './admin/assortment-page/assortment-form/assortment-form.component';
+import {CategoriesPageComponent} from './categories-page/categories-page.component';
 
 
 const routes: Routes = [
@@ -19,7 +20,8 @@ const routes: Routes = [
       {path: '', redirectTo: '/home', pathMatch: 'full'},
       {path: 'home', component: MainPageComponent},
       {path: 'login', component: LoginPageComponent},
-      {path: 'register', component: RegisterPageComponent}
+      {path: 'register', component: RegisterPageComponent},
+      {path: 'categories', component: CategoriesPageComponent}
     ]
   },
   {
