@@ -6,7 +6,7 @@ import {CategoriesService} from '../../../shared/services/categories.service';
 import {switchMap} from 'rxjs/operators';
 import {of} from 'rxjs';
 import {Category} from '../../../shared/interfaces';
-import {error} from 'util';
+
 
 @Component({
   selector: 'app-assortment-form',
@@ -76,6 +76,18 @@ export class AssortmentFormComponent implements OnInit {
     };
 
     reader.readAsDataURL(file);
+  }
+
+  deleteCategory() {
+    const decision = confirm(`Вы хотите удалить категорию ${this.category.name}`);
+
+    if (decision) {
+      this.categoriesService.remove(this.category._id).subscribe(
+        (response) => MaterialService.toast(response.message),
+        error => MaterialService.toast(error.error.message),
+        () => this.router.navigate(['AdminDashboard', 'assortment'])
+      );
+    }
   }
 
   onSubmit() {

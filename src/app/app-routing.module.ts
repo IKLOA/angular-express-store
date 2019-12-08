@@ -12,6 +12,7 @@ import {OrdersPageComponent} from './admin/orders-page/orders-page.component';
 import {AssortmentPageComponent} from './admin/assortment-page/assortment-page.component';
 import {AssortmentFormComponent} from './admin/assortment-page/assortment-form/assortment-form.component';
 import {CategoriesPageComponent} from './categories-page/categories-page.component';
+import {DeliveryPageComponent} from './delivery-page/delivery-page.component';
 
 
 const routes: Routes = [
@@ -21,7 +22,8 @@ const routes: Routes = [
       {path: 'home', component: MainPageComponent},
       {path: 'login', component: LoginPageComponent},
       {path: 'register', component: RegisterPageComponent},
-      {path: 'categories', component: CategoriesPageComponent}
+      {path: 'categories', component: CategoriesPageComponent},
+      {path: 'delivery', component: DeliveryPageComponent}
     ]
   },
   {

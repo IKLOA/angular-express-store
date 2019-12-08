@@ -17,7 +17,7 @@ module.exports.create = async function (req, res) {
       description: req.body.description,
       cost: req.body.cost,
       imageSrc: req.file.path,
-      category: req.body.category
+      category: req.body.categoryId
     }).save()
     res.status(201).json(position)
   } catch (e) {
@@ -41,7 +41,7 @@ module.exports.update = async function (req, res) {
     name: req.body.name,
     description: req.body.description,
     cost: req.body.cost,
-    category: req.body.category
+    category: req.body.categoryId
   }
 
   if (req.file) {

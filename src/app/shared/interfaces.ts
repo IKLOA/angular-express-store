@@ -8,3 +8,16 @@ export interface Category {
   imageSrc?: string;
   _id?: string;
 }
+
+export interface Message {
+  message: string;
+}
+
+export interface Position {
+  name: string;
+  description: string;
+  cost: string;
+  imageSrc?: string;
+  category: string;
+  _id?: string;
+}
