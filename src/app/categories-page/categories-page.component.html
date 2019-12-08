@@ -1,5 +1,5 @@
 <div class="container-fluid">
-  <h2>Каталог</h2>
+  <h2>Категории</h2>
   <div
     *ngIf="categories$ | async as categories; else loader"
     class="row"
@@ -10,11 +10,14 @@
     >
       <div class="card">
         <div class="card-image">
-          <img [src]="getUrl(category.imageSrc)" class="activator">
+          <img [routerLink]=[category._id]
+               [src]="getUrl(category.imageSrc)"
+               class="activator"
+          >
         </div>
         <div class="card-content">
           <span class="card-title activator grey-text text-darken-4">{{category.name}}</span>
-          <p><a href="#">перейти</a></p>
+          <p><a [routerLink]=[category._id]>перейти</a></p>
         </div>
       </div>
     </div>

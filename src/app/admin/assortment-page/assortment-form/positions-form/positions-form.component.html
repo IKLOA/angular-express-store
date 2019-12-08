@@ -59,13 +59,14 @@
         </span>
       </div>
       <div class="input-field">
-        <input
-          [ngClass]="{'invalid': form.get('description').invalid && form.get('description').touched}"
+        <p class="grey-text text-darken-1">Описание</p>
+        <quill-editor
           formControlName="description"
           id="pos-description"
-          type="text"
+          [ngClass]="{'invalid': form.get('description').invalid && form.get('description').touched}"
         >
-        <label for="pos-description">Описание</label>
+        </quill-editor>
+
         <span
           *ngIf="form.get('description').invalid && form.get('description').touched"
           class="helper-text red-text"
@@ -88,6 +89,14 @@
         >
           введите корректную цену
         </span>
+      </div>
+      <div class="input-field">
+        <input
+          formControlName="costWithDiscount"
+          id="pos-costWithDiscount"
+          type="number"
+        >
+        <label for="pos-cost">Цена со скидкой</label>
       </div>
       <div class="input-field df">
 

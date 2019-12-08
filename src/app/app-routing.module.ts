@@ -13,6 +13,7 @@ import {AssortmentPageComponent} from './admin/assortment-page/assortment-page.c
 import {AssortmentFormComponent} from './admin/assortment-page/assortment-form/assortment-form.component';
 import {CategoriesPageComponent} from './categories-page/categories-page.component';
 import {DeliveryPageComponent} from './delivery-page/delivery-page.component';
+import {PositionsPageComponent} from './categories-page/positions-page/positions-page.component';
 
 
 const routes: Routes = [
@@ -23,6 +24,7 @@ const routes: Routes = [
       {path: 'login', component: LoginPageComponent},
       {path: 'register', component: RegisterPageComponent},
       {path: 'categories', component: CategoriesPageComponent},
+      {path: 'categories/:id', component: PositionsPageComponent},
       {path: 'delivery', component: DeliveryPageComponent}
     ]
   },

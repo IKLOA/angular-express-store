@@ -16,6 +16,7 @@ module.exports.create = async function (req, res) {
       name: req.body.name,
       description: req.body.description,
       cost: req.body.cost,
+      costWithDiscount: req.body.costWithDiscount,
       imageSrc: req.file.path,
       category: req.body.categoryId
     }).save()
@@ -41,6 +42,7 @@ module.exports.update = async function (req, res) {
     name: req.body.name,
     description: req.body.description,
     cost: req.body.cost,
+    costWithDiscount: req.body.costWithDiscount,
     category: req.body.categoryId
   }
 

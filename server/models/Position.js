@@ -14,6 +14,9 @@ const positionSchema = new Schema({
     type: String,
     required: true
   },
+  costWithDiscount: {
+    type: String
+  },
   imageSrc: {
     type: String,
     required: true

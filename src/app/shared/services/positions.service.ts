@@ -16,18 +16,21 @@ export class PositionsService {
     return this.http.get<Position[]>(`/api/position/${categoryId}`);
   }
 
-  create(name: string, description: string, cost: string, image: File, categoryId: string): Observable<Position> {
+  create(name: string, description: string, cost: string, image: File, categoryId: string, costWithDiscount?: string): Observable<Position> {
     const fd = new FormData();
     fd.append('name', name);
     fd.append('description', description);
     fd.append('cost', cost);
     fd.append('image', image, image.name);
     fd.append('categoryId', categoryId);
+    if (costWithDiscount) {
+      fd.append('costWithDiscount', costWithDiscount);
+    }
 
     return this.http.post<Position>('/api/position', fd);
   }
 
-  update(id: string, categoryId: string, name?: string, description?: string, cost?: string, image?: File): Observable<Position> {
+  update(id: string, categoryId: string, name?: string, description?: string, cost?: string, image?: File, costWithDiscount?: string): Observable<Position> {
     const fd = new FormData();
 
     if (image) {
@@ -44,6 +47,10 @@ export class PositionsService {
 
     if (description) {
       fd.append('description', description);
+    }
+
+    if (costWithDiscount) {
+      fd.append('costWithDiscount', costWithDiscount);
     }
 
     fd.append('categoryId', categoryId);

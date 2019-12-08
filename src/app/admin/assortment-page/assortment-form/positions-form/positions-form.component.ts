@@ -31,7 +31,8 @@ export class PositionsFormComponent implements OnInit, AfterViewInit, OnDestroy 
       name: new FormControl(null, Validators.required),
       description: new FormControl(null, Validators.required),
       cost: new FormControl(null, [Validators.required]),
-      image: new FormControl(null)
+      image: new FormControl(null),
+      costWithDiscount: new FormControl(null)
     });
 
     this.loading = true;
@@ -75,6 +76,7 @@ export class PositionsFormComponent implements OnInit, AfterViewInit, OnDestroy 
       name: position.name,
       description: position.description,
       cost: position.cost,
+      costWithDiscount: position.costWithDiscount
     });
     this.imagePreview = `http://localhost:3000/${position.imageSrc}`;
     this.modal.open();
@@ -110,7 +112,7 @@ export class PositionsFormComponent implements OnInit, AfterViewInit, OnDestroy 
     if (this.form.valid) {
 
       if (this.positionId) {
-        this.positionsService.update(this.positionId, this.categoryId, this.form.value.name, this.form.value.description, this.form.value.cost + '', this.image)
+        this.positionsService.update(this.positionId, this.categoryId, this.form.value.name, this.form.value.description, this.form.value.cost + '', this.image, this.form.value.costWithDiscount)
           .subscribe(
             position => {
               const idx = this.positions.findIndex(p => p._id === position._id);
@@ -126,7 +128,7 @@ export class PositionsFormComponent implements OnInit, AfterViewInit, OnDestroy 
             }
           );
       } else {
-        this.positionsService.create(this.form.value.name, this.form.value.description, this.form.value.cost + '', this.image, this.categoryId)
+        this.positionsService.create(this.form.value.name, this.form.value.description, this.form.value.cost + '', this.image, this.categoryId, this.form.value.costWithDiscount)
           .subscribe(
             position => {
               MaterialService.toast('Позиция создана');

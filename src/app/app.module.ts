@@ -1,8 +1,8 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
+import {AppRoutingModule} from './app-routing.module';
+import {AppComponent} from './app.component';
 import {LoginPageComponent} from './login-page/login-page.component';
 import {RegisterPageComponent} from './register-page/register-page.component';
 import {StoreLayoutComponent} from './shared/layouts/store-layout/store-layout.component';
@@ -20,6 +20,8 @@ import {AssortmentFormComponent} from './admin/assortment-page/assortment-form/a
 import {PositionsFormComponent} from './admin/assortment-page/assortment-form/positions-form/positions-form.component';
 import {CategoriesPageComponent} from './categories-page/categories-page.component';
 import {DeliveryPageComponent} from './delivery-page/delivery-page.component';
+import {PositionsPageComponent} from './categories-page/positions-page/positions-page.component';
+import {QuillModule} from 'ngx-quill';
 
 @NgModule({
   declarations: [
@@ -37,15 +39,19 @@ import {DeliveryPageComponent} from './delivery-page/delivery-page.component';
     AssortmentFormComponent,
     PositionsFormComponent,
     CategoriesPageComponent,
-    DeliveryPageComponent
+    DeliveryPageComponent,
+    PositionsPageComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     FormsModule,
-    HttpClientModule
-
+    HttpClientModule,
+    QuillModule.forRoot()
+  ],
+  exports: [
+    QuillModule
   ],
   providers: [
     {
@@ -56,4 +62,5 @@ import {DeliveryPageComponent} from './delivery-page/delivery-page.component';
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

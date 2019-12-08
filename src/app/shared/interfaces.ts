@@ -20,4 +20,5 @@ export interface Position {
   imageSrc?: string;
   category: string;
   _id?: string;
+  costWithDiscount?: string;
 }

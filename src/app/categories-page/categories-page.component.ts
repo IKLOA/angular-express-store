@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {CategoriesService} from '../shared/services/categories.service';
 import {Observable} from 'rxjs';
 import {Category} from '../shared/interfaces';
@@ -10,9 +10,11 @@ import {Category} from '../shared/interfaces';
 })
 export class CategoriesPageComponent implements OnInit {
 
+  @Output() CategoryId: EventEmitter<string> = new EventEmitter<string>();
   categories$: Observable<Category[]>;
   image: File;
   imagePreview = null;
+
 
   constructor(private categoriesSerivce: CategoriesService) {
   }
@@ -24,4 +26,6 @@ export class CategoriesPageComponent implements OnInit {
   getUrl(id: string): string {
     return `http://localhost:3000/${id}`;
   }
+
+
 }
