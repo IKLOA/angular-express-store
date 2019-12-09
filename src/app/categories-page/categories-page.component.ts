@@ -10,7 +10,6 @@ import {Category} from '../shared/interfaces';
 })
 export class CategoriesPageComponent implements OnInit {
 
-  @Output() CategoryId: EventEmitter<string> = new EventEmitter<string>();
   categories$: Observable<Category[]>;
   image: File;
   imagePreview = null;

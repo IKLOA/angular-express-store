@@ -22,6 +22,7 @@ import {CategoriesPageComponent} from './categories-page/categories-page.compone
 import {DeliveryPageComponent} from './delivery-page/delivery-page.component';
 import {PositionsPageComponent} from './categories-page/positions-page/positions-page.component';
 import {QuillModule} from 'ngx-quill';
+import {PositionPageComponent} from './categories-page/positions-page/position-page/position-page.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import {QuillModule} from 'ngx-quill';
     PositionsFormComponent,
     CategoriesPageComponent,
     DeliveryPageComponent,
-    PositionsPageComponent
+    PositionsPageComponent,
+    PositionPageComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,40 @@
+<div class="container-fluid">
+  <div *ngIf="!isLoading; else loader">
+    <a [routerLink]="['/categories', categoryId]"
+       class="waves-effect waves-grey btn-flat brown btn white-text btn__back">Назад</a>
+    <div *ngIf="position" class="position">
+      <img [src]="'http://localhost:3000/' + position.imageSrc" width="400">
+      <div class="position-info">
+        <p class="position-info__name">
+          {{position.name}}
+        </p>
+        <div class="price-block">
+          <p class="position-info__cost">
+            <b [ngClass]="{'strikePrice': position.costWithDiscount}">{{position.cost}} $</b>
+          </p>
+          <b *ngIf="position.costWithDiscount" class="discountPrice">{{position.costWithDiscount}} $</b>
+        </div>
+        <div class="size-group">
+          <div
+            (click)="selectSize(size, $event)"
+            *ngFor="let size of sizes"
+            class="size"
+          >
+            {{size}}
+          </div>
+        </div>
+        <a class="waves-effect waves-light btn-flat btn__buy brown white-text">Добавить в корзину</a>
+        <b class="db description__title">Описание</b>
+        <div class="description">
+          <quill-view-html [content]="position.description"></quill-view-html>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <ng-template #loader>
+    <app-loader></app-loader>
+  </ng-template>
+</div>
+
+

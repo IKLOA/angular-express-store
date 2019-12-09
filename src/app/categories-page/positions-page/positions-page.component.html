@@ -17,7 +17,7 @@
           class="card"
         >
           <div class="card-image">
-            <img [routerLink]=[position._id]
+            <img [routerLink]="['/categories', categoryId, position._id]"
                  [src]="getUrl(position.imageSrc)"
                  class="activator"
             >
@@ -39,7 +39,7 @@
               >
                 {{position.costWithDiscount}} $
               </p>
-              <a href="#">Подробнее</a>
+              <a [routerLink]="['/categories', categoryId, position._id]">Подробнее</a>
             </div>
           </div>
         </div>

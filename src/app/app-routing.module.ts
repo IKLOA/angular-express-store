@@ -14,6 +14,7 @@ import {AssortmentFormComponent} from './admin/assortment-page/assortment-form/a
 import {CategoriesPageComponent} from './categories-page/categories-page.component';
 import {DeliveryPageComponent} from './delivery-page/delivery-page.component';
 import {PositionsPageComponent} from './categories-page/positions-page/positions-page.component';
+import {PositionPageComponent} from './categories-page/positions-page/position-page/position-page.component';
 
 
 const routes: Routes = [
@@ -25,6 +26,7 @@ const routes: Routes = [
       {path: 'register', component: RegisterPageComponent},
       {path: 'categories', component: CategoriesPageComponent},
       {path: 'categories/:id', component: PositionsPageComponent},
+      {path: 'categories/:id/:positionId', component: PositionPageComponent},
       {path: 'delivery', component: DeliveryPageComponent}
     ]
   },

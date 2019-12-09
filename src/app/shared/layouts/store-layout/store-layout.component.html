@@ -56,22 +56,19 @@
 
   <footer class="page-footer brown lighten-1">
     <div class="footer">
-      <div class="col l4 offset-l2 s12">
+      <div *ngIf="categories$ | async as categories" class="col l4 offset-l2 s12">
         <h6>Каталог:</h6>
         <ul class="footer-list">
-          <li><a class="grey-text text-lighten-3 footer-list__item" href="#!">Футболки</a></li>
-          <li><a class="grey-text text-lighten-3 footer-list__item" href="#!">Свитшоты</a></li>
-          <li><a class="grey-text text-lighten-3 footer-list__item" href="#!">Поло</a></li>
-          <li><a class="grey-text text-lighten-3 footer-list__item" href="#!">Рубашки</a></li>
-          <li><a class="grey-text text-lighten-3 footer-list__item" href="#!">Шапки</a></li>
-          <li><a class="grey-text text-lighten-3 footer-list__item" href="#!">Худи</a></li>
-          <li><a class="grey-text text-lighten-3 footer-list__item" href="#!">Рюкзаки</a></li>
+          <li *ngFor="let category of categories">
+            <a class="grey-text text-lighten-3 footer-list__item"
+               href="/categories/{{category._id}}">{{category.name}}</a>
+          </li>
         </ul>
         <h6>Поддержка и сервис:</h6>
         <ul class="footer-list">
-          <li><a class="grey-text text-lighten-3 footer-list__item" href="#!">О нас</a></li>
+          <li><a [routerLink]="['/home']" class="grey-text text-lighten-3 footer-list__item">О нас</a></li>
           <li><a class="grey-text text-lighten-3 footer-list__item" href="#!">Контакты</a></li>
-          <li><a class="grey-text text-lighten-3 footer-list__item" href="#!">Доставка</a></li>
+          <li><a [routerLink]="['/delivery']" class="grey-text text-lighten-3 footer-list__item">Доставка</a></li>
           <li><a class="grey-text text-lighten-3 footer-list__item" href="#!">Акции</a></li>
         </ul>
       </div>

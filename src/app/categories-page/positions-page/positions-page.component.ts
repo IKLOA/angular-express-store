@@ -1,5 +1,5 @@
-import {AfterViewInit, Component, Input, OnInit} from '@angular/core';
-import {ActivatedRoute, Router} from '@angular/router';
+import {AfterViewInit, Component, DoCheck, Input, OnChanges, OnInit} from '@angular/core';
+import {ActivatedRoute, Params, Router} from '@angular/router';
 import {CategoriesService} from '../../shared/services/categories.service';
 import {Category, Position} from '../../shared/interfaces';
 import {PositionsService} from '../../shared/services/positions.service';
@@ -29,7 +29,6 @@ export class PositionsPageComponent implements OnInit {
     this.positions$ = this.positionsService.fetch(this.categoryId);
 
   }
-
 
   getUrl(id: string): string {
     return `http://localhost:3000/${id}`;

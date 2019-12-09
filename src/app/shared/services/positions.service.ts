@@ -16,6 +16,10 @@ export class PositionsService {
     return this.http.get<Position[]>(`/api/position/${categoryId}`);
   }
 
+  getById(positionId: string): Observable<Position> {
+    return this.http.get<Position>(`api/position/byId/${positionId}`);
+  }
+
   create(name: string, description: string, cost: string, image: File, categoryId: string, costWithDiscount?: string): Observable<Position> {
     const fd = new FormData();
     fd.append('name', name);

@@ -10,6 +10,15 @@ module.exports.getByCategoryId = async function (req, res) {
   }
 }
 
+module.exports.getByPositionId = async function (req, res) {
+  try {
+    const position = await Position.findOne({_id: req.params.id})
+    res.status(200).json(position)
+  } catch (e) {
+    errorHandler(res, e)
+  }
+}
+
 module.exports.create = async function (req, res) {
   try {
     const position = await new Position({
