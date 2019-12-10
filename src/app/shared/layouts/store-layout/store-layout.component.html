@@ -61,7 +61,10 @@
         <ul class="footer-list">
           <li *ngFor="let category of categories">
             <a class="grey-text text-lighten-3 footer-list__item"
-               href="/categories/{{category._id}}">{{category.name}}</a>
+               [routerLink]="['/categories', category._id]"
+            >
+              {{category.name}}
+            </a>
           </li>
         </ul>
         <h6>Поддержка и сервис:</h6>

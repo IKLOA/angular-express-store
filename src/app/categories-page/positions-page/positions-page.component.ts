@@ -1,9 +1,9 @@
 import {AfterViewInit, Component, DoCheck, Input, OnChanges, OnInit} from '@angular/core';
-import {ActivatedRoute, Params, Router} from '@angular/router';
+import {ActivatedRoute, NavigationEnd, Params, Router} from '@angular/router';
 import {CategoriesService} from '../../shared/services/categories.service';
 import {Category, Position} from '../../shared/interfaces';
 import {PositionsService} from '../../shared/services/positions.service';
-import {Observable} from 'rxjs';
+import {Observable, Subscription} from 'rxjs';
 
 
 @Component({
@@ -13,20 +13,37 @@ import {Observable} from 'rxjs';
 })
 export class PositionsPageComponent implements OnInit {
 
+  querySubscription: Subscription;
   categoryId: string;
   category: Category;
   positions$: Observable<Position[]>;
 
-  constructor(private route: ActivatedRoute, private categoriesService: CategoriesService, private positionsService: PositionsService) {
+  constructor(private route: ActivatedRoute, private categoriesService: CategoriesService, private positionsService: PositionsService, private router: Router) {
   }
 
   ngOnInit() {
-    this.categoryId = this.route.params.value.id;
-    this.categoriesService.getById(this.categoryId).subscribe((category: Category) => {
-      this.category = category;
+    this.querySubscription = this.route.params.subscribe((queryParam: any) => {
+      this.categoryId = queryParam.id;
+      this.categoriesService.getById(this.categoryId).subscribe((category: Category) => {
+        this.category = category;
+      });
     });
 
     this.positions$ = this.positionsService.fetch(this.categoryId);
+
+
+    this.router.events.subscribe(event => {
+      if (event instanceof NavigationEnd) {
+        this.querySubscription = this.route.params.subscribe((queryParam: any) => {
+          this.categoryId = queryParam.id;
+          this.categoriesService.getById(this.categoryId).subscribe((category: Category) => {
+            this.category = category;
+          });
+        });
+
+        this.positions$ = this.positionsService.fetch(this.categoryId);
+      }
+    });
 
   }
 

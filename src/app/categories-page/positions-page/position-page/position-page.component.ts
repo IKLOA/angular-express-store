@@ -1,14 +1,15 @@
 import {AfterViewInit, Component, OnInit} from '@angular/core';
 import {Position} from '../../../shared/interfaces';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, NavigationEnd, Router} from '@angular/router';
 import {PositionsService} from '../../../shared/services/positions.service';
+import {Subscription} from 'rxjs';
 
 @Component({
   selector: 'app-position-page',
   templateUrl: './position-page.component.html',
   styleUrls: ['./position-page.component.sass']
 })
-export class PositionPageComponent implements OnInit, AfterViewInit {
+export class PositionPageComponent implements OnInit {
 
   positionId: string;
   position: Position;
@@ -17,6 +18,7 @@ export class PositionPageComponent implements OnInit, AfterViewInit {
   selectedSize = '';
   preTarget = null;
   isLoading = false;
+  querySubscription: Subscription;
 
 
   constructor(private route: ActivatedRoute, private positionService: PositionsService) {
@@ -24,15 +26,16 @@ export class PositionPageComponent implements OnInit, AfterViewInit {
 
   ngOnInit() {
     this.isLoading = true;
-    this.categoryId = this.route.params.value.id;
-    this.positionId = this.route.params.value.positionId;
-    this.positionService.getById(this.positionId).subscribe((pos: Position) => {
-      if (pos) {
-        this.position = pos;
-        this.isLoading = false;
-      }
+    this.querySubscription = this.route.params.subscribe((queryParam: any) => {
+      this.categoryId = queryParam.id;
+      this.positionId = queryParam.positionId;
+      this.positionService.getById(this.positionId).subscribe((pos: Position) => {
+        if (pos) {
+          this.position = pos;
+          this.isLoading = false;
+        }
+      });
     });
-
   }
 
 //rofl))))
