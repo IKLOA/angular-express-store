@@ -4,6 +4,8 @@ import {CategoriesService} from '../../shared/services/categories.service';
 import {Category, Position} from '../../shared/interfaces';
 import {PositionsService} from '../../shared/services/positions.service';
 import {Observable, Subscription} from 'rxjs';
+import {MaterialService} from '../../shared/classes/material.service';
+import {OrderService} from '../../shared/services/order.service';
 
 
 @Component({
@@ -18,7 +20,11 @@ export class PositionsPageComponent implements OnInit {
   category: Category;
   positions$: Observable<Position[]>;
 
-  constructor(private route: ActivatedRoute, private categoriesService: CategoriesService, private positionsService: PositionsService, private router: Router) {
+  constructor(private route: ActivatedRoute,
+              private categoriesService: CategoriesService,
+              private positionsService: PositionsService,
+              private router: Router,
+              private order: OrderService) {
   }
 
   ngOnInit() {
@@ -51,4 +57,13 @@ export class PositionsPageComponent implements OnInit {
     return `http://localhost:3000/${id}`;
   }
 
+
+  addPosition(position: Position) {
+    if (!position.quantity) {
+      position.quantity = 1;
+    }
+    position.size = 'M';
+    this.order.add(position);
+    MaterialService.toast('Товар добавлен в корзину');
+  }
 }

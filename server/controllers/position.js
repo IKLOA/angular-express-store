@@ -24,7 +24,7 @@ module.exports.create = async function (req, res) {
     const position = await new Position({
       name: req.body.name,
       description: req.body.description,
-      cost: req.body.cost,
+      cost: +req.body.cost,
       costWithDiscount: req.body.costWithDiscount,
       imageSrc: req.file.path,
       category: req.body.categoryId
@@ -50,7 +50,7 @@ module.exports.update = async function (req, res) {
   const updated = {
     name: req.body.name,
     description: req.body.description,
-    cost: req.body.cost,
+    cost: +req.body.cost,
     costWithDiscount: req.body.costWithDiscount,
     category: req.body.categoryId
   }

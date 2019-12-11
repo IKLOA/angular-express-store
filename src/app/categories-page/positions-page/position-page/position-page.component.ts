@@ -3,6 +3,8 @@ import {Position} from '../../../shared/interfaces';
 import {ActivatedRoute, NavigationEnd, Router} from '@angular/router';
 import {PositionsService} from '../../../shared/services/positions.service';
 import {Subscription} from 'rxjs';
+import {MaterialService} from '../../../shared/classes/material.service';
+import {OrderService} from '../../../shared/services/order.service';
 
 @Component({
   selector: 'app-position-page',
@@ -21,7 +23,7 @@ export class PositionPageComponent implements OnInit {
   querySubscription: Subscription;
 
 
-  constructor(private route: ActivatedRoute, private positionService: PositionsService) {
+  constructor(private route: ActivatedRoute, private positionService: PositionsService, private order: OrderService) {
   }
 
   ngOnInit() {
@@ -47,4 +49,19 @@ export class PositionPageComponent implements OnInit {
     this.preTarget = event.target;
     event.target.classList.add('size_selected');
   }
+
+
+  addPosition(position: Position) {
+    if (this.selectedSize) {
+      if (!position.quantity) {
+        position.quantity = 1;
+      }
+      position.size = this.selectedSize;
+      this.order.add(position);
+      MaterialService.toast('Товар добавлен в корзину');
+    } else {
+      MaterialService.toast('Выберите размер');
+    }
+  }
+
 }

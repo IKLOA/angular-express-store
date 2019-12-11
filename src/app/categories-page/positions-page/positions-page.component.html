@@ -21,7 +21,14 @@
                  [src]="getUrl(position.imageSrc)"
                  class="activator"
             >
-            <a class="btn-floating halfway-fab waves-effect waves-light brown"><i class="material-icons">add</i></a>
+            <a class="btn-floating halfway-fab waves-effect waves-light brown">
+              <i
+                (click)="addPosition(position)"
+                class="material-icons"
+              >
+                add
+              </i>
+            </a>
 
           </div>
           <div class="card-content">

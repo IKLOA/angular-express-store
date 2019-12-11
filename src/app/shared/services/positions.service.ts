@@ -27,6 +27,7 @@ export class PositionsService {
     fd.append('cost', cost);
     fd.append('image', image, image.name);
     fd.append('categoryId', categoryId);
+
     if (costWithDiscount) {
       fd.append('costWithDiscount', costWithDiscount);
     }

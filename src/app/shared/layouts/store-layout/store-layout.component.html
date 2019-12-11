@@ -13,10 +13,16 @@
         <li routerLinkActive="active">
           <a routerLink="/categories">Каталог</a>
         </li>
-        <li><a href="">Новинки</a></li>
         <li><a href="">Акции</a></li>
-        <li><a routerLink="/delivery">Доставка</a></li>
-        <li><a href="">Контакты</a></li>
+        <li>
+          <a routerLink="/delivery">Доставка</a>
+        </li>
+        <li>
+          <a routerLink="/contacts">Контакты</a>
+        </li>
+        <li>
+          <a routerLink="/basket">Корзина</a>
+        </li>
         <li
           *ngIf="!auth.isAuthenticated()"
           routerLinkActive="active"
@@ -30,8 +36,9 @@
           <a routerLink="/register">Регистрация</a>
         </li>
         <li *ngIf="auth.isAuthenticated()">
-          <a href="">Мои заказы</a>
+          <a routerLink="/orders">Мои заказы</a>
         </li>
+
         <li *ngIf="auth.isAuthenticated()">
           <a (click)="auth.logout()">Выйти</a>
         </li>

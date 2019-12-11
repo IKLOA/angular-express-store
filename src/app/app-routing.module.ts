@@ -15,6 +15,10 @@ import {CategoriesPageComponent} from './categories-page/categories-page.compone
 import {DeliveryPageComponent} from './delivery-page/delivery-page.component';
 import {PositionsPageComponent} from './categories-page/positions-page/positions-page.component';
 import {PositionPageComponent} from './categories-page/positions-page/position-page/position-page.component';
+import {ContactsPageComponent} from './contacts-page/contacts-page.component';
+import {BasketPageComponent} from './basket-page/basket-page.component';
+import {UserOrdersPageComponent} from './user-orders-page/user-orders-page.component';
+import {AuthGuard} from './shared/classes/auth.guard';
 
 
 const routes: Routes = [
@@ -27,7 +31,10 @@ const routes: Routes = [
       {path: 'categories', component: CategoriesPageComponent},
       {path: 'categories/:id', component: PositionsPageComponent},
       {path: 'categories/:id/:positionId', component: PositionPageComponent},
-      {path: 'delivery', component: DeliveryPageComponent}
+      {path: 'delivery', component: DeliveryPageComponent},
+      {path: 'contacts', component: ContactsPageComponent},
+      {path: 'basket', component: BasketPageComponent},
+      {path: 'orders', canActivate: [AuthGuard], component: UserOrdersPageComponent}
     ]
   },
   {

@@ -1,0 +1,74 @@
+<div class="container-fluid">
+  <h2>Корзина</h2>
+  <div *ngIf="order.list.length !==0; else empty" class="order">
+    <table>
+      <thead>
+      <tr>
+        <td><b>Название</b></td>
+        <td><b>Размер</b></td>
+        <td><b>Количество</b></td>
+        <td><b>Цена</b></td>
+        <td></td>
+      </tr>
+      </thead>
+      <tr *ngFor="let item of order.list">
+        <td>{{item.name}}</td>
+        <td>{{item.size}}</td>
+        <td>{{item.quantity}}</td>
+        <td>{{(item.costWithDiscount ? item.costWithDiscount : item.cost) * item.quantity}}</td>
+        <td><i (click)="removePosition(item)" class="material-icons pointer">delete</i></td>
+      </tr>
+    </table>
+    <div class="order-summary">
+      <p>Общая стоимость <strong>{{order.price}} $</strong></p>
+    </div>
+    <div class="order-buttons">
+      <a (click)="confirmOrder()" class="waves-effect waves-grey btn-flat brown white-text btn">Оформить заказ</a>
+      <a (click)="clearBasket()" class="waves-effect waves-grey btn-flat brown white-text btn">Очисить корзину</a>
+    </div>
+  </div>
+</div>
+
+<form (ngSubmit)="onSubmit()" [formGroup]="form">
+  <div #modal class="modal">
+    <div class="modal-content">
+      <h4 class="mb1">Подтверждение заказа</h4>
+      <div class="input-field">
+        <input
+          [ngClass]="{'invalid': form.get('adress').touched && form.get('adress').errors}"
+          formControlName="adress"
+          id="pos-address"
+          type="text"
+        >
+        <label for="pos-address">Адрес</label>
+        <span *ngIf="form.get('adress').touched && form.get('adress').errors" class="helper-text red-text">
+          Заполните поле
+        </span>
+      </div>
+      <div class="input-field">
+        <input
+          [ngClass]="{'invalid': form.get('phone').touched && form.get('phone').errors}"
+          formControlName="phone"
+          id="pos-phone"
+          type="text"
+        >
+        <label for="pos-phone">Телефон</label>
+        <span *ngIf="form.get('phone').touched && form.get('phone').errors" class="helper-text red-text">
+          Заполните поле
+        </span>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <a (click)="onCancel()" class="modal-action waves-effect waves-black btn-flat">Отмена</a>
+      <button class="modal-action btn waves-effect" type="submit">Подтвердить</button>
+    </div>
+  </div>
+</form>
+
+
+<ng-template #empty>
+  <div class="center">
+    <h5>Корзина пуста</h5>
+  </div>
+</ng-template>
+

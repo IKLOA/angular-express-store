@@ -23,6 +23,9 @@ import {DeliveryPageComponent} from './delivery-page/delivery-page.component';
 import {PositionsPageComponent} from './categories-page/positions-page/positions-page.component';
 import {QuillModule} from 'ngx-quill';
 import {PositionPageComponent} from './categories-page/positions-page/position-page/position-page.component';
+import {ContactsPageComponent} from './contacts-page/contacts-page.component';
+import {BasketPageComponent} from './basket-page/basket-page.component';
+import {UserOrdersPageComponent} from './user-orders-page/user-orders-page.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +45,10 @@ import {PositionPageComponent} from './categories-page/positions-page/position-p
     CategoriesPageComponent,
     DeliveryPageComponent,
     PositionsPageComponent,
-    PositionPageComponent
+    PositionPageComponent,
+    ContactsPageComponent,
+    BasketPageComponent,
+    UserOrdersPageComponent
   ],
   imports: [
     BrowserModule,

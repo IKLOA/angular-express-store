@@ -23,7 +23,8 @@
             {{size}}
           </div>
         </div>
-        <a class="waves-effect waves-light btn-flat btn__buy brown white-text">Добавить в корзину</a>
+        <a (click)="addPosition(position)" class="waves-effect waves-light btn-flat btn__buy brown white-text">Добавить
+          в корзину</a>
         <b class="db description__title">Описание</b>
         <div class="description">
           <quill-view-html [content]="position.description"></quill-view-html>
