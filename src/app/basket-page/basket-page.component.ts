@@ -18,6 +18,7 @@ export class BasketPageComponent implements OnInit, AfterViewInit, OnDestroy {
   form: FormGroup;
   aSub: Subscription;
 
+
   constructor(private order: OrderService, private auth: AuthService) {
   }
 
@@ -26,6 +27,7 @@ export class BasketPageComponent implements OnInit, AfterViewInit, OnDestroy {
       adress: new FormControl(null, Validators.required),
       phone: new FormControl(null, Validators.required)
     });
+
   }
 
   ngOnDestroy() {

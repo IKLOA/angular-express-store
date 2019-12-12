@@ -1,6 +1,15 @@
 const Position = require('../models/Position')
 const errorHandler = require('../utils/errorHandler')
 
+module.exports.getDiscount = async function (req, res) {
+  try {
+    const positions = await Position.find({costWithDiscount: {$ne: null}})
+    res.status(200).json(positions)
+  } catch (e) {
+    errorHandler(res, e)
+  }
+}
+
 module.exports.getByCategoryId = async function (req, res) {
   try {
     const positions = await Position.find({category: req.params.categoryId})

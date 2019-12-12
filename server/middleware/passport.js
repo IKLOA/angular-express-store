@@ -11,7 +11,7 @@ const options = {
 }
 
 const options2 = {
-  jwtFromRequest: ExtractJwt.fromHeader(),
+  jwtFromRequest: ExtractJwt.fromAuthHeaderWithScheme('jwt'),
   secretOrKey: keys.jwt
 }
 

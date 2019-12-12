@@ -3,43 +3,55 @@ const errorHandler = require('../utils/errorHandler')
 
 module.exports.getByUserId = async function (req, res) {
   try {
-    const order = await Order.findOne({_id: req.user.id})
+    const orders = await Order.find({user: req.user.id}).sort({date: -1})
+    res.status(200).json(orders)
+  } catch (e) {
+    errorHandler(res, e)
+  }
+}
+
+module.exports.getById = async function (req, res) {
+  try {
+    const order = await Order.findOne({_id: req.params.id})
     res.status(200).json(order)
   } catch (e) {
     errorHandler(res, e)
   }
 }
 
+
 module.exports.getAll = async function (req, res) {
   try {
-    const query = {
-      user: req.user.id
-    }
+    // const query = {
+    //   user: req.user.id
+    // }
+    //
+    //
+    // if (req.query.start) {
+    //   query.date = {
+    //     $gte: req.query.start
+    //   }
+    // }
+    //
+    // if (req.query.end) {
+    //   if (!query.date) {
+    //     query.date = {}
+    //   }
+    //
+    //   query.date['$lte'] = req.query.end
+    // }
+    //
+    // if (req.query.order) {
+    //   query.order = +req.query.order
+    // }
+    //
+    // const orders = await Order
+    //   .find(query)
+    //   .sort({date: -1})
+    //   .skip(+req.query.offset)
+    //   .limit(+req.query.limit)
 
-
-    if (req.query.start) {
-      query.date = {
-        $gte: req.query.start
-      }
-    }
-
-    if (req.query.end) {
-      if (!query.date) {
-        query.date = {}
-      }
-
-      query.date['$lte'] = req.query.end
-    }
-
-    if (req.query.order) {
-      query.order = +req.query.order
-    }
-
-    const orders = await Order
-      .find(query)
-      .sort({date: -1})
-      .skip(+req.query.offset)
-      .limit(+req.query.limit)
+    const orders = await Order.find({}).sort({date: -1})
 
     res.status(200).json(orders)
   } catch (e) {

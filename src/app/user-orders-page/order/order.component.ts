@@ -1,15 +1,15 @@
 import {AfterViewInit, Component, ElementRef, OnDestroy, OnInit, ViewChild} from '@angular/core';
-import {MaterialIstance, MaterialService} from '../../shared/classes/material.service';
+import {OrderService} from '../../shared/services/order.service';
 import {Observable} from 'rxjs';
 import {Order} from '../../shared/interfaces';
-import {OrderService} from '../../shared/services/order.service';
+import {MaterialIstance, MaterialService} from '../../shared/classes/material.service';
 
 @Component({
-  selector: 'app-orders-page',
-  templateUrl: './orders-page.component.html',
-  styleUrls: ['./orders-page.component.sass']
+  selector: 'app-order',
+  templateUrl: './order.component.html',
+  styleUrls: ['./order.component.sass']
 })
-export class OrdersPageComponent implements OnInit, AfterViewInit, OnDestroy {
+export class OrderComponent implements OnInit, AfterViewInit, OnDestroy {
   @ViewChild('modal', {static: false}) modalRef: ElementRef;
   modal: MaterialIstance;
   orders$: Observable<Order[]>;
@@ -19,7 +19,7 @@ export class OrdersPageComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.orders$ = this.orderService.getAll();
+    this.orders$ = this.orderService.getByUserId();
   }
 
   ngOnDestroy() {
@@ -41,4 +41,3 @@ export class OrdersPageComponent implements OnInit, AfterViewInit, OnDestroy {
 
 
 }
-

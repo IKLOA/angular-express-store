@@ -13,12 +13,17 @@
         <li routerLinkActive="active">
           <a routerLink="/categories">Каталог</a>
         </li>
-        <li><a href="">Акции</a></li>
+        <li>
+          <a routerLink="/stokcs">Акции</a>
+        </li>
         <li>
           <a routerLink="/delivery">Доставка</a>
         </li>
         <li>
           <a routerLink="/contacts">Контакты</a>
+        </li>
+        <li *ngIf="auth.isAuthenticated()">
+          <a routerLink="/orders">Мои заказы</a>
         </li>
         <li>
           <a routerLink="/basket">Корзина</a>
@@ -35,12 +40,10 @@
         >
           <a routerLink="/register">Регистрация</a>
         </li>
-        <li *ngIf="auth.isAuthenticated()">
-          <a routerLink="/orders">Мои заказы</a>
-        </li>
+
 
         <li *ngIf="auth.isAuthenticated()">
-          <a (click)="auth.logout()">Выйти</a>
+          <a (click)="auth.logout()" routerLink="/home">Выйти</a>
         </li>
       </ul>
     </div>
@@ -77,9 +80,9 @@
         <h6>Поддержка и сервис:</h6>
         <ul class="footer-list">
           <li><a [routerLink]="['/home']" class="grey-text text-lighten-3 footer-list__item">О нас</a></li>
-          <li><a class="grey-text text-lighten-3 footer-list__item" href="#!">Контакты</a></li>
+          <li><a class="grey-text text-lighten-3 footer-list__item" routerLink="/contacts">Контакты</a></li>
           <li><a [routerLink]="['/delivery']" class="grey-text text-lighten-3 footer-list__item">Доставка</a></li>
-          <li><a class="grey-text text-lighten-3 footer-list__item" href="#!">Акции</a></li>
+          <li><a class="grey-text text-lighten-3 footer-list__item" routerLink="/stokcs">Акции</a></li>
         </ul>
       </div>
       <div class="contacts-block">

@@ -1,0 +1,60 @@
+<div class="container-fluid">
+  <h2>Акции</h2>
+  <div
+    *ngIf="positions$ | async as positions; else loader"
+    class="row"
+  >
+    <div *ngIf="positions.length !== 0; else empty">
+      <div
+        *ngFor="let position of positions"
+        class="col s3"
+      >
+        <div
+          class="card"
+        >
+          <div class="card-image">
+            <img [routerLink]="['/categories', position.category, position._id]"
+                 [src]="getUrl(position.imageSrc)"
+                 class="activator"
+            >
+            <a class="btn-floating halfway-fab waves-effect waves-light brown">
+              <i
+                (click)="addPosition(position)"
+                class="material-icons"
+              >
+                add
+              </i>
+            </a>
+
+          </div>
+          <div class="card-content">
+            <span class="card-title">{{position.name}}</span>
+            <div class="card-info">
+              <p
+                [ngClass]="{'strikePrice': position.costWithDiscount}"
+                class="price"
+              >
+                {{position.cost}} $
+              </p>
+              <p
+                *ngIf="position.costWithDiscount"
+                class="discountPrice"
+              >
+                {{position.costWithDiscount}} $
+              </p>
+              <a [routerLink]="['/categories', position.category, position._id]">Подробнее</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <ng-template #empty>
+      <div class="center">
+        Товаров пока нет
+      </div>
+    </ng-template>
+  </div>
+  <ng-template #loader>
+    <app-loader></app-loader>
+  </ng-template>
+</div>

@@ -16,6 +16,18 @@ export class OrderService {
   constructor(private http: HttpClient) {
   }
 
+  getByUserId(): Observable<Order[]> {
+    return this.http.get<Order[]>(`/api/order/view/orders`);
+  }
+
+  getAll(): Observable<Order[]> {
+    return this.http.get<Order[]>(`/api/order`);
+  }
+
+  getById(id: string): Observable<Order> {
+    return this.http.get<Order>(`api/order/${id}`);
+  }
+
   create(order: Order): Observable<Order> {
     return this.http.post<Order>('/api/order', order);
   }
@@ -51,7 +63,8 @@ export class OrderService {
 
   private computePrice() {
     this.price = this.list.reduce((total, item) => {
-      return total += item.quantity * item.cost;
+      const cost = +item.costWithDiscount ? +item.costWithDiscount : item.cost;
+      return total += item.quantity * cost;
     }, 0);
   }
 }

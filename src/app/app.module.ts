@@ -26,6 +26,8 @@ import {PositionPageComponent} from './categories-page/positions-page/position-p
 import {ContactsPageComponent} from './contacts-page/contacts-page.component';
 import {BasketPageComponent} from './basket-page/basket-page.component';
 import {UserOrdersPageComponent} from './user-orders-page/user-orders-page.component';
+import {OrderComponent} from './user-orders-page/order/order.component';
+import {StokcsPageComponent} from './stokcs-page/stokcs-page.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +50,9 @@ import {UserOrdersPageComponent} from './user-orders-page/user-orders-page.compo
     PositionPageComponent,
     ContactsPageComponent,
     BasketPageComponent,
-    UserOrdersPageComponent
+    UserOrdersPageComponent,
+    OrderComponent,
+    StokcsPageComponent
   ],
   imports: [
     BrowserModule,

@@ -12,6 +12,10 @@ export class PositionsService {
 
   }
 
+  getDiscount(): Observable<Position[]> {
+    return this.http.get<Position[]>('/api/position/discount/view');
+  }
+
   fetch(categoryId: string): Observable<Position[]> {
     return this.http.get<Position[]>(`/api/position/${categoryId}`);
   }

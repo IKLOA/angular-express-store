@@ -28,6 +28,9 @@ const ordersSchema = new Schema({
       },
       cost: {
         type: Number
+      },
+      size: {
+        type: String
       }
     }
   ],

@@ -6,6 +6,7 @@ const controller = require('../controllers/position')
 
 router.get('/:categoryId', controller.getByCategoryId)
 router.get('/byId/:id', controller.getByPositionId)
+router.get('/discount/view', controller.getDiscount)
 
 router.post('/', passport.authenticate('admin-jwt', {session: false}), upload.single('image'), controller.create)
 

@@ -15,7 +15,7 @@
         <td>{{item.name}}</td>
         <td>{{item.size}}</td>
         <td>{{item.quantity}}</td>
-        <td>{{(item.costWithDiscount ? item.costWithDiscount : item.cost) * item.quantity}}</td>
+        <td>{{(+item.costWithDiscount ? item.costWithDiscount : item.cost) * item.quantity}}</td>
         <td><i (click)="removePosition(item)" class="material-icons pointer">delete</i></td>
       </tr>
     </table>

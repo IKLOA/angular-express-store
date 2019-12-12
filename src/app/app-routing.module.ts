@@ -19,6 +19,7 @@ import {ContactsPageComponent} from './contacts-page/contacts-page.component';
 import {BasketPageComponent} from './basket-page/basket-page.component';
 import {UserOrdersPageComponent} from './user-orders-page/user-orders-page.component';
 import {AuthGuard} from './shared/classes/auth.guard';
+import {StokcsPageComponent} from './stokcs-page/stokcs-page.component';
 
 
 const routes: Routes = [
@@ -34,7 +35,8 @@ const routes: Routes = [
       {path: 'delivery', component: DeliveryPageComponent},
       {path: 'contacts', component: ContactsPageComponent},
       {path: 'basket', component: BasketPageComponent},
-      {path: 'orders', canActivate: [AuthGuard], component: UserOrdersPageComponent}
+      {path: 'orders', canActivate: [AuthGuard], component: UserOrdersPageComponent},
+      {path: 'stokcs', component: StokcsPageComponent}
     ]
   },
   {
@@ -45,6 +47,7 @@ const routes: Routes = [
   },
   {
     path: 'AdminDashboard', canActivate: [AdminAuthGuard], component: AdminDashboardPageComponent, children: [
+      {path: 'AdminDashboard', redirectTo: '/assortment', pathMatch: 'full'},
       {path: 'orders', component: OrdersPageComponent},
       {path: 'assortment', component: AssortmentPageComponent},
       {path: 'assortment/new', component: AssortmentFormComponent},
