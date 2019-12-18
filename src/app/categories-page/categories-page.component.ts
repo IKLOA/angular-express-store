@@ -26,7 +26,7 @@ export class CategoriesPageComponent implements OnInit {
   }
 
    getUrl(id: string) {
-    GetUrlService.getUrl(id);
+     return GetUrlService.getUrl(id);
   }
 
 
