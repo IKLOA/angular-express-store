@@ -4,6 +4,7 @@ import {Observable} from 'rxjs';
 import {Category, Position} from '../shared/interfaces';
 import {MaterialService} from '../shared/classes/material.service';
 import {OrderService} from '../shared/services/order.service';
+import {GetUrlService} from "../shared/classes/getUrl.service";
 
 @Component({
   selector: 'app-stokcs-page',
@@ -21,7 +22,7 @@ export class StokcsPageComponent implements OnInit {
   }
 
   getUrl(id: string) {
-    return `http://localhost:3000/${id}`;
+    GetUrlService.getUrl(id);
   }
 
   addPosition(position: Position) {

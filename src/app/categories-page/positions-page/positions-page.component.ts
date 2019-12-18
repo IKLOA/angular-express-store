@@ -6,6 +6,7 @@ import {PositionsService} from '../../shared/services/positions.service';
 import {Observable, Subscription} from 'rxjs';
 import {MaterialService} from '../../shared/classes/material.service';
 import {OrderService} from '../../shared/services/order.service';
+import {GetUrlService} from "../../shared/classes/getUrl.service";
 
 
 @Component({
@@ -53,8 +54,8 @@ export class PositionsPageComponent implements OnInit {
 
   }
 
-  getUrl(id: string): string {
-    return `http://localhost:3000/${id}`;
+  getUrl(id: string) {
+    GetUrlService.getUrl(id);
   }
 
 

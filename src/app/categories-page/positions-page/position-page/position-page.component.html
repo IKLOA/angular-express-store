@@ -3,7 +3,7 @@
     <a [routerLink]="['/categories', categoryId]"
        class="waves-effect waves-grey btn-flat brown btn white-text btn__back">Назад</a>
     <div *ngIf="position" class="position">
-      <img [src]="'http://localhost:3000/' + position.imageSrc" width="400">
+      <img [src]="getUrl(position._id)" width="400">
       <div class="position-info">
         <p class="position-info__name">
           {{position.name}}

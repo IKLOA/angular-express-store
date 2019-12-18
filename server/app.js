@@ -32,4 +32,13 @@ app.use('/api/category', categoryRoutes)
 app.use('/api/position', positionRoutes)
 app.use('/api/order', orderRoutes)
 
+
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static('dist/client'))
+
+  app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname,  'dist', 'client', 'index.html'))
+  })
+}
+
 module.exports = app

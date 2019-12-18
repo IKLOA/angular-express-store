@@ -2,6 +2,8 @@ import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {CategoriesService} from '../shared/services/categories.service';
 import {Observable} from 'rxjs';
 import {Category} from '../shared/interfaces';
+import {GetUrlService} from "../shared/classes/getUrl.service";
+
 
 @Component({
   selector: 'app-categories-page',
@@ -15,6 +17,7 @@ export class CategoriesPageComponent implements OnInit {
   imagePreview = null;
 
 
+
   constructor(private categoriesSerivce: CategoriesService) {
   }
 
@@ -22,8 +25,8 @@ export class CategoriesPageComponent implements OnInit {
     this.categories$ = this.categoriesSerivce.fetch();
   }
 
-  getUrl(id: string): string {
-    return `http://localhost:3000/${id}`;
+   getUrl(id: string) {
+    GetUrlService.getUrl(id);
   }
 
 

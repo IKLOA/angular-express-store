@@ -5,6 +5,7 @@ import {PositionsService} from '../../../shared/services/positions.service';
 import {Subscription} from 'rxjs';
 import {MaterialService} from '../../../shared/classes/material.service';
 import {OrderService} from '../../../shared/services/order.service';
+import {GetUrlService} from "../../../shared/classes/getUrl.service";
 
 @Component({
   selector: 'app-position-page',
@@ -64,4 +65,7 @@ export class PositionPageComponent implements OnInit {
     }
   }
 
+  getUrl(id: string) {
+    GetUrlService.getUrl(id);
+  }
 }

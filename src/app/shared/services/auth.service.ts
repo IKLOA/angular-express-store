@@ -4,6 +4,7 @@ import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {tap} from 'rxjs/operators';
 import {Router} from '@angular/router';
+import {MaterialService} from "../classes/material.service";
 
 @Injectable({
   providedIn: 'root'
@@ -23,6 +24,9 @@ export class AuthService {
           ({token}) => {
             localStorage.setItem('auth-token', token);
             this.setToken(token);
+            setTimeout(() => {
+              this.logout();
+            }, 1000 * 60 * 60);
           }
         )
       );
@@ -35,6 +39,9 @@ export class AuthService {
           ({token}) => {
             localStorage.setItem('admin-token', token);
             this.setAdminToken(token);
+            setTimeout(() => {
+              this.adminLogout();
+            }, 1000 * 60 * 60);
           }
         )
       );
@@ -51,7 +58,6 @@ export class AuthService {
   setAdminToken(adminToken: string) {
     this.adminToken = adminToken;
   }
-
 
 
   getToken(): string {
@@ -78,7 +84,7 @@ export class AuthService {
   adminLogout() {
     this.setAdminToken(null);
     localStorage.clear();
-    this.router.navigate(['/']);
+    this.router.navigate(['/admin']);
   }
 
 }

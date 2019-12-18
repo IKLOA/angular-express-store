@@ -6,6 +6,7 @@ import {CategoriesService} from '../../../shared/services/categories.service';
 import {switchMap} from 'rxjs/operators';
 import {of} from 'rxjs';
 import {Category} from '../../../shared/interfaces';
+import {GetUrlService} from "../../../shared/classes/getUrl.service";
 
 
 @Component({
@@ -53,12 +54,12 @@ export class AssortmentFormComponent implements OnInit {
             this.form.patchValue({
               name: category.name
             });
-            this.imagePreview = `http://localhost:3000/${category.imageSrc}`;
+            this.imagePreview = GetUrlService.getUrl(category.imageSrc);
             MaterialService.updateTextFields();
           }
         },
         error => MaterialService.toast(error.error.message)
-      );
+      ); 
   }
 
   triggerClick() {

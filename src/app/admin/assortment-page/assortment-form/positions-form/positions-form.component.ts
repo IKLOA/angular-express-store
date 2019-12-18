@@ -3,6 +3,7 @@ import {PositionsService} from '../../../../shared/services/positions.service';
 import {Position} from '../../../../shared/interfaces';
 import {MaterialIstance, MaterialService} from '../../../../shared/classes/material.service';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {GetUrlService} from "../../../../shared/classes/getUrl.service";
 
 @Component({
   selector: 'app-positions-form',
@@ -78,7 +79,7 @@ export class PositionsFormComponent implements OnInit, AfterViewInit, OnDestroy 
       cost: position.cost,
       costWithDiscount: position.costWithDiscount
     });
-    this.imagePreview = `http://localhost:3000/${position.imageSrc}`;
+    this.imagePreview = GetUrlService.getUrl(position.imageSrc);
     this.modal.open();
     MaterialService.updateTextFields();
   }
